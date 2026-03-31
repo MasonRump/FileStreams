@@ -1,12 +1,20 @@
+import java.io.RandomAccessFile;
+
 public class RandProductMaker {
-    RandomAccessFile file = new RandomAccessFile("products.dat", "rw");
+    public static void main(String[] args) {
+        try {
+            RandomAccessFile file = new RandomAccessFile("products.dat", "rw");
 
-    file.seek(file.length());
+            file.seek(file.length()); // go to end
 
-    Product p = new Product(name, desc, id, cost);
-    p.writeToFile(file);
+            Product p = new Product("123456", "TestProduct", "TestDesc", 9.99);
+            p.writeToFile(file);
 
-    recordCount++;
-    countField.setText(String.valueOf(recordCount));
+            file.close();
 
+            System.out.println("Product written!");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
