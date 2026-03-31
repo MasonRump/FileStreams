@@ -26,12 +26,8 @@ public class Product {
 
     public static String padString(String s, int length) {
         StringBuilder sb = new StringBuilder(s);
-        if (sb.length() > length) {
-            return sb.substring(0, length);
-        }
-        while (sb.length() < length) {
-            sb.append(" ");
-        }
+        if (sb.length() > length) return sb.substring(0, length);
+        while (sb.length() < length) sb.append(" ");
         return sb.toString();
     }
 
@@ -61,6 +57,6 @@ public class Product {
 
     @Override
     public String toString() {
-        return id + " - " + name + " (" + desc + ") $" + cost;
+        return id + " | " + name + " | " + desc + " | $" + cost;
     }
 }
